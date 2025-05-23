@@ -1,0 +1,53 @@
+<div class="bg">
+    <div class="login-container">
+        <h2 class="title">
+            <div style="font-family: 'Playfair Display', serif; ">
+                TAREF’S
+            </div>
+        </h2>
+    @if(!accountCreated){
+        <h5>
+            Criar conta
+        </h5>
+       
+            <form #loginForm="ngForm">
+                <div class="form-group">
+                    <label for="user">
+                        Escolha seu nome de Usuario:
+                    </label>
+                    <input
+                    type="user"
+                    id="user"
+                    name="user"
+                    [(ngModel)]="usuario"
+                    required
+                    placeholder="Lorian"
+                    />
+
+                    <label for="password" style="margin-top: 10px;">
+                        Digite sua senha:
+                    </label>
+
+                    <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    [(ngModel)]="password"
+                    required
+                    placeholder="******"
+                    />
+                </div>
+
+                <button [disabled]="!loginForm.valid" (click)="onSubmit()"> Confirmar dados </button>
+            </form>
+        }
+
+        @else {
+            <div style="display: flex; flex-direction: column; text-align: center;">
+                Sua conta foi criada! <br> Você será redirecionado para a pagina de login.
+            </div>
+        }
+
+        
+    </div>
+</div>

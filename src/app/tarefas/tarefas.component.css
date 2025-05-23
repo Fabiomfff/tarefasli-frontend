@@ -1,0 +1,39 @@
+
+button {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+textarea {
+    color: #555; 
+    border-radius: 15px; 
+    border-color: rgb(145, 145, 145);
+    background-color: #c9c9c9; 
+    margin: 0; 
+    resize: none; 
+    outline: none;
+    padding: 10px;
+}
+
+.task_cont {
+    width: 100%;
+    background-color: #dbdbdb;
+    border-radius: 5px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.199);
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: transform 0.2s ease;
+    display: flex;
+    height: 150px;
+    gap: 20px;
+}
+
+@media (max-width: 600px) {
+    .task_cont {
+        height: 200px;
+    }
+}

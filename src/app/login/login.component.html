@@ -1,0 +1,51 @@
+<div class="bg">
+    <div class="login-container">
+        <h2 class="title">
+            <div style="font-family: 'Playfair Display', serif; ">
+                TAREF’S
+            </div>
+            
+            <div class="subtitle">
+                Task Management System.
+            </div>
+        </h2>
+
+        @if(errLogin){
+            <div style="position: absolute; top: 90px; left: 0;width: 350px; text-align: center; font-size: 12px; text-wrap: nowrap; color: red;" class="enteranim">
+                Usuario ou senha incorretos.
+            </div>
+        }
+        <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+            <div class="form-group">
+                <label for="user">
+                    Entre seu nome de Usuario:
+                </label>
+                <input
+                type="user"
+                id="user"
+                name="user"
+                [(ngModel)]="usuario"
+                required
+                placeholder="John Doe"
+                />
+
+                 <label for="password" style="margin-top: 10px;">
+                    Sua senha:
+                </label>
+                <input
+                type="password"
+                id="password"
+                name="password"
+                [(ngModel)]="password"
+                required
+                placeholder="1a2b3c4d"
+                />
+            </div>
+
+            <a href="/create" style="margin-left: auto; margin-top: -20px; font-size: 12px; margin-right: auto;">
+                Não possui uma conta? Clique aqui para criar uma.
+            </a>
+            <button type="submit" [disabled]="!loginForm.valid"> Acessar :) </button>
+        </form>
+    </div>
+</div>

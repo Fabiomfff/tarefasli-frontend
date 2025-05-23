@@ -1,0 +1,13 @@
+<div style="position: relative; z-index: 1;">
+  <ng-particles
+    [id]="id"
+    [options]="particlesOptions"
+    [particlesInit]="particlesInit"
+    (particlesLoaded)="particlesLoaded($event)"
+  >
+  </ng-particles>
+</div>
+
+<div style="position: relative; z-index: 2;">
+  <router-outlet></router-outlet>
+</div>
