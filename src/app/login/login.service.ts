@@ -11,7 +11,7 @@ export class LoginService {
 
     username: string = '';
 
-    private apiUrl = 'http://localhost:3000';
+    private apiUrl = 'https://tarefasli-backend.onrender.com';
 
     login(username: string, password: string): Observable<any> {
         const params = { username, password };

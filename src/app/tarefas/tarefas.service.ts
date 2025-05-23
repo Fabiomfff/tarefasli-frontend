@@ -20,7 +20,7 @@ export class TarefasService {
     constructor(private http: HttpClient, private router: Router) { }
     
   
-    private apiUrl = 'http://localhost:3000';
+    private apiUrl = 'https://tarefasli-backend.onrender.com';
     userName!: string;
     tarefas: any;
     loading: any;

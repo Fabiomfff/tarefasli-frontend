@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 })
 export class UserService {
    
-    private apiUrl = 'http://localhost:3000';
+    private apiUrl = 'https://tarefasli-backend.onrender.com';
 
 
 
