@@ -19,6 +19,9 @@ export class SideMenuComponent {
     userMenu: boolean = false;
     logout() {
         localStorage.clear();
-        this.router.navigate(['login'])
+        setTimeout(() => {
+            this.router.navigate(['']);
+        }, 500);
+        
     }
 }

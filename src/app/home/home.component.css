@@ -31,7 +31,7 @@
 .animation_enter {
     transform: translateX(-40px);
     opacity: 0;
-    animation: enter_task 0.3s forwards ease-in-out;
+    animation: enter_task 0.7s forwards ease-in-out;
 }
 
 @keyframes enter_task {
@@ -39,6 +39,7 @@
         transform: translateX(-40px);
         opacity: 0;
     }
+    
     100% {
         transform: translateX(0px);
         opacity: 1;

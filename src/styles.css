@@ -28,5 +28,5 @@ body{
   --x: calc(var(--posX, 0) * 1px);
   --y: calc(var(--posY, 0) * 1px);
   background-image: 
-    linear-gradient(115deg, rgb(189, 187, 172), rgb(61, 60, 57));
+    linear-gradient(115deg, #161616, #28212f);
 }

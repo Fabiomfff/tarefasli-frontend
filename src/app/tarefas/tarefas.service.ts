@@ -9,17 +9,10 @@ import { Observable } from 'rxjs';
 export class TarefasService {
     token: string = '';
     ngOnInit(): void {
-        this.token = localStorage.getItem('token') || '';
-
-        if(this.token == '') {
-            localStorage.clear();
-            this.router.navigate(['login'])
-        }
-        
+        this.token = localStorage.getItem('token') || '';        
     }
     constructor(private http: HttpClient, private router: Router) { }
     
-  
     private apiUrl = 'https://tarefasli-backend.onrender.com';
     userName!: string;
     tarefas: any;

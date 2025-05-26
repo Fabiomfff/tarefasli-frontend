@@ -5,7 +5,7 @@
                 TAREF’S
             </div>
         </h2>
-    @if(!accountCreated){
+    @if(!accountCreated && !loadingSubmit){
         <h5>
             Criar conta
         </h5>
@@ -37,13 +37,21 @@
                     placeholder="******"
                     />
                 </div>
-
+                <a href="/login" style="margin-left: auto; margin-top: -20px; font-size: 12px; margin-right: auto;">
+                    Voltar ao login.
+                </a>
                 <button [disabled]="!loginForm.valid" (click)="onSubmit()"> Confirmar dados </button>
             </form>
         }
 
+        @else if (!accountCreated && loadingSubmit) {
+            <div style="display: flex; justify-content: center; text-align: center; width: 100%;">
+                <span class="loader"></span>
+            </div>
+        }
+
         @else {
-            <div style="display: flex; flex-direction: column; text-align: center;">
+            <div style="display: flex; justify-content: center; text-align: center; width: 100%;">
                 Sua conta foi criada! <br> Você será redirecionado para a pagina de login.
             </div>
         }

@@ -1,4 +1,7 @@
-<div class="task_cont" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'" [ngStyle]="{'background-color': errorUpdate ? '#D3AFAFFF' : ''}">
+<div class="task_cont" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'" [ngStyle]="{
+    'background-color': errorUpdate ? '#D3AFAFFF' : '',
+    'animation-delay' : '0.' + index + 's'
+}">
     <div style="margin: auto 0px; font-size: 26px; font-weight: bold;">
         {{index + 1}}
     </div>

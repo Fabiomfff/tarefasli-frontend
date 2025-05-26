@@ -30,6 +30,28 @@ textarea {
     display: flex;
     height: 150px;
     gap: 20px;
+
+    transform: translateY(-100px);
+    opacity: 0;
+
+    animation: enter 0.8s forwards ease-in-out;
+}
+
+@keyframes enter {
+    0% {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+
+    }
 }
 
 @media (max-width: 600px) {

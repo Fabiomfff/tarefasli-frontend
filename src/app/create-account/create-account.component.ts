@@ -27,18 +27,22 @@ export class CreateAccountComponent {
     }  
 
     accountCreated: boolean = false;
-
+    loadingSubmit: boolean = false;
+    
     onSubmit() {
+        this.loadingSubmit = true;
         this.accountCreated = false;
         this.LoginService.createAccount(this.usuario.toLowerCase(), this.password.toLowerCase()).subscribe(
             (response: any) => {
                 this.accountCreated = true;
+                this.loadingSubmit = false;
                 setTimeout(() => {
                     this.router.navigate(['login']);
                 }, 5000);
             },
             (error: any) => {
                 console.log(error);
+                this.loadingSubmit = false;
             }
         );
     }

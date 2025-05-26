@@ -9,43 +9,48 @@
                 Task Management System.
             </div>
         </h2>
+        @if (!loadingReq) {
+            @if(errLogin){
+                <div style="position: absolute; top: 90px; left: 0;width: 350px; text-align: center; font-size: 12px; text-wrap: nowrap; color: red;" class="enteranim">
+                    Erro ao fazer login.
+                </div>
+            }
+            <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+                <div class="form-group">
+                    <label for="user">
+                        Entre seu nome de Usuario:
+                    </label>
+                    <input
+                    type="user"
+                    id="user"
+                    name="user"
+                    [(ngModel)]="usuario"
+                    required
+                    placeholder="John Doe"
+                    />
 
-        @if(errLogin){
-            <div style="position: absolute; top: 90px; left: 0;width: 350px; text-align: center; font-size: 12px; text-wrap: nowrap; color: red;" class="enteranim">
-                Usuario ou senha incorretos.
+                    <label for="password" style="margin-top: 10px;">
+                        Sua senha:
+                    </label>
+                    <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    [(ngModel)]="password"
+                    required
+                    placeholder="1a2b3c4d"
+                    />
+                </div>
+
+                <a href="/create" style="margin-left: auto; margin-top: -20px; font-size: 12px; margin-right: auto;">
+                    Não possui uma conta? Clique aqui para criar uma.
+                </a>
+                <button type="submit" [disabled]="!loginForm.valid"> Acessar :) </button>
+            </form>
+        } @else {
+            <div style="display: flex; justify-content: center; text-align: center; width: 100%;">
+                <span class="loader"></span>
             </div>
         }
-        <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
-            <div class="form-group">
-                <label for="user">
-                    Entre seu nome de Usuario:
-                </label>
-                <input
-                type="user"
-                id="user"
-                name="user"
-                [(ngModel)]="usuario"
-                required
-                placeholder="John Doe"
-                />
-
-                 <label for="password" style="margin-top: 10px;">
-                    Sua senha:
-                </label>
-                <input
-                type="password"
-                id="password"
-                name="password"
-                [(ngModel)]="password"
-                required
-                placeholder="1a2b3c4d"
-                />
-            </div>
-
-            <a href="/create" style="margin-left: auto; margin-top: -20px; font-size: 12px; margin-right: auto;">
-                Não possui uma conta? Clique aqui para criar uma.
-            </a>
-            <button type="submit" [disabled]="!loginForm.valid"> Acessar :) </button>
-        </form>
     </div>
 </div>

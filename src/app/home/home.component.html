@@ -18,7 +18,7 @@
 
 @if (tarefasService.tarefas && !tarefasService.loading) {
     @for (tarefa of tarefasService.tarefas; track $index) {
-        <app-tarefas style="width: 100%;"  class="animation_enter" [ngStyle]="{ 'animation-delay': '1.' + ($index + 4) + 's' }" 
+        <app-tarefas style="width: 100%;"
         [index]="$index"
         [tarefa]="tarefa"
         [token]="token"

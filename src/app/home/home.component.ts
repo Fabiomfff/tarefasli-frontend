@@ -29,11 +29,6 @@ export class HomeComponent {
     ngOnInit(): void {
         this.modalAddTarefa = false;
         this.token = localStorage.getItem('token') || '';
-        if(this.token == '' || !this.token) {
-            localStorage.clear();
-            this.router.navigate(['login']);
-            return
-        }
 
         this.userService.currentUser(this.token);
 

@@ -22,18 +22,21 @@ export class LoginComponent {
 
     ngOnInit(): void {
         let usernameLs = localStorage.getItem('nome');
-        let useridLs = localStorage.getItem('token');
-        if (usernameLs && useridLs) this.LoginService.username = usernameLs;
-        if (this.LoginService.username.length > 0) this.router.navigate(['home']);
+        let userToken= localStorage.getItem('token');
+        if (usernameLs && userToken) this.LoginService.username = usernameLs;
+        if (userToken) this.router.navigate(['home']);
     }
 
     errLogin: boolean = false;
+    loadingReq: boolean = false;
     onSubmit() {
         this.errLogin = false;
+        this.loadingReq = true;
         this.LoginService.username = this.usuario;
 
         this.LoginService.login(this.usuario.toLowerCase(), this.password.toLowerCase()).subscribe(
             (response:any) => {
+                this.loadingReq = false;
                 console.log(response)
                 localStorage.setItem ('token', response.token);
                 localStorage.setItem ('nome', response.user.nome);
@@ -42,12 +45,12 @@ export class LoginComponent {
 
             }, (error: any) => {
                 this.errLogin = true;
+                this.loadingReq = false;
 
                 setTimeout(() => {
                     this.errLogin = false;
                 }, 4000);
                 console.log(error)
         });
-        // this.router.navigate(['home']);
     }
 }
